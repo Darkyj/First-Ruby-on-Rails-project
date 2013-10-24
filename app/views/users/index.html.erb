@@ -1,0 +1,15 @@
+<% content_for :title do %>
+	Display all users
+<% end %>
+
+<table>
+	<tbody>
+		<% @users.each do |user| %>
+		<tr>
+			<td><%= user.first_name %> <%= user.last_name %></td>
+			<td><%= user.email_address %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+
