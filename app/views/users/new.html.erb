@@ -2,5 +2,28 @@
 	Add a new User
 <% end %>
 
+ <% if @user.errors.any? %>
+	<div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited User from being registered:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |usr| %>
+        <li><%= usr %></li>
+      <% end %>
+      </ul>
+    </div>
+<% end %>
+
+<form action="/users" method="post">
+	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+	<input type="text" name="user[first_name]" placeholder="First Name">
+	<input type="text" name="user[last_name]" placeholder="Last Name">
+	<input type="text" placeholder="Email Address" name="user[email_address]">
+	<input type="password" name="user[password]" placeholder="Password">
+	<input type="submit" value="Register">
+</form>
+
+
+
 <h1>Users#new</h1>
 <p>Find me in app/views/users/new.html.erb</p>

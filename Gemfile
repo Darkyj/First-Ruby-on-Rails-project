@@ -32,6 +32,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'simple_form'
 
 #visual tables on console
 gem 'hirb'
