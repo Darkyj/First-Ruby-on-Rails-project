@@ -1,20 +1,5 @@
-<% content_for :title do %>
-	Add a new User
-<% end %>
-
- <% if @user.errors.any? %>
-	<div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited User from being registered:</h2>
-
-      <ul>
-      <% @user.errors.full_messages.each do |usr| %>
-        <li><%= usr %></li>
-      <% end %>
-      </ul>
-    </div>
-<% end %>
-
-<form action="/users" method="post">
+<form action="/users/<%= @user.id %>" method="post">
+	<input name="_method" type="hidden" value="put">
 	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
 	<input type="text" name="user[first_name]" placeholder="First Name">
 	<input type="text" name="user[last_name]" placeholder="Last Name">
